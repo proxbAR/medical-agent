@@ -1,0 +1,65 @@
+[
+  {
+    "invoice_id": "INV-5FAE5EFC",
+    "patient_id": "5",
+    "medication_id": "103",
+    "quantity": 5,
+    "pharmacy": "null",
+    "amount": 25.0,
+    "timestamp": "2025-09-16T09:03:44Z"
+  },
+  {
+    "invoice_id": "INV-38FA1701",
+    "patient_id": "5",
+    "medication_id": "M330",
+    "quantity": 25,
+    "pharmacy": "local_pharmacy",
+    "amount": 65.0,
+    "timestamp": "2025-09-16T09:11:41Z"
+  },
+  {
+    "invoice_id": "INV-7354337A",
+    "patient_id": "4",
+    "medication_id": "M330",
+    "quantity": 2,
+    "pharmacy": "local Pharmacy",
+    "amount": 19.0,
+    "timestamp": "2025-09-16T09:18:41Z"
+  },
+  {
+    "invoice_id": "INV-65B1131B",
+    "patient_id": "3",
+    "medication_id": "M410",
+    "quantity": 28,
+    "pharmacy": "null",
+    "amount": 71.0,
+    "timestamp": "2025-09-16T09:49:16Z"
+  },
+  {
+    "invoice_id": "INV-35EE3832",
+    "patient_id": "5",
+    "medication_id": "M330",
+    "quantity": 18,
+    "pharmacy": "null",
+    "amount": 51.0,
+    "timestamp": "2025-09-16T09:50:36Z"
+  },
+  {
+    "invoice_id": "INV-D12053EE",
+    "patient_id": "5",
+    "medication_id": "M330",
+    "quantity": 30,
+    "pharmacy": "Walmart",
+    "amount": 75.0,
+    "timestamp": "2025-09-16T15:18:10Z"
+  },
+  {
+    "invoice_id": "INV-E80D6821",
+    "patient_id": "5",
+    "medication_id": "M330",
+    "quantity": 10,
+    "pharmacy": "Local Pharmacy",
+    "amount": 35.0,
+    "timestamp": "2025-09-18T06:48:58Z"
+  }
+]
