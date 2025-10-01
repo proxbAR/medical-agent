@@ -1,24 +1,3 @@
-#
-# Copyright (c) 2024–2025, Daily
-#
-# SPDX-License-Identifier: BSD 2-Clause License
-#
-
-"""Pipecat Quickstart Example.
-
-The example runs a simple voice AI bot that you can connect to using your
-browser and speak with it. You can also deploy this bot to Pipecat Cloud.
-
-Required AI services:
-- Deepgram (Speech-to-Text)
-- OpenAI (LLM)
-- Cartesia (Text-to-Speech)
-
-Run the bot using::
-
-    uv run bot.py
-"""
-
 import os
 import json
 import time
@@ -65,6 +44,7 @@ async def run_bot(transport: BaseTransport, runner_args: RunnerArguments):
 
     stt = DeepgramSTTService(api_key=os.getenv("DEEPGRAM_API_KEY"))
     
+    # Uncomment the code below to use STT and TTS with RIVA
     # stt = RivaSTTService(
     #     api_key=os.getenv("RIVA_API_KEY"),
     #     server=os.getenv("RIVA_SERVER"),
@@ -77,39 +57,6 @@ async def run_bot(transport: BaseTransport, runner_args: RunnerArguments):
         api_key=os.getenv("CARTESIA_API_KEY"),
         voice_id="71a7ad14-091c-4e8e-a314-022ece01c121",  # British Reading Lady
     )
-
-    # confirm_identity_fn = FunctionSchema(
-    #     name="confirm_identity",
-    #     description="Verify patient by ID and name; persist a short-lived dev session record.",
-    #     properties={
-    #         "patient_id": {"type": "string"},
-    #         "last_name": {"type": "string"}
-    #         # "dob": {"type": "string", "description": "YYYY-MM-DD"}
-    #     },
-    #     required=["patient_id", "last_name"],
-    # )
-
-    # list_active_meds_fn = FunctionSchema(
-    #     name="list_active_medications",
-    #     description="Return the active medications for a verified patient.",
-    #     properties={"patient_id": {"type": "string"}},
-    #     required=["patient_id"],
-    # )
-
-    # create_refill_invoice_fn = FunctionSchema(
-    #     name="create_refill_invoice",
-    #     description="Create a refill invoice for a given medication.",
-    #     properties={
-    #         "patient_id": {"type": "string"},
-    #         "medication_id": {"type": "string", "description": "ID of the med to refill"},
-    #         "quantity": {"type": "integer", "minimum": 1},
-    #         "pharmacy": {"type": "string", "nullable": True}
-    #     },
-    #     required=["patient_id", "medication_id", "quantity"],
-    # )
-    # 
-    # 
-    # tools_schema_ = ToolsSchema(standard_tools=[confirm_identity_fn, list_active_meds_fn, create_refill_invoice_fn])
 
     tools_schema_ = [ 
         ChatCompletionToolParam( 
@@ -174,28 +121,16 @@ async def run_bot(transport: BaseTransport, runner_args: RunnerArguments):
         ), 
     ] 
 
-    # llm = OpenAILLMService(
-    #     model=os.getenv("OPENAI_MODEL"),
-    #     api_key=os.getenv("OPENAI_API_KEY"),
-    #     base_url=os.getenv("OPENAI_BASE_URL"),
+    llm = OpenAILLMService(
+        model=os.getenv("OPENAI_MODEL"),
+        api_key=os.getenv("OPENAI_API_KEY"),
+        base_url=os.getenv("OPENAI_BASE_URL"),
 
-    #     params=OpenAILLMService.InputParams(
+    #   params=OpenAILLMService.InputParams(
     #         temperature=0.7,
     #         tools=tools_schema_,
     #         tool_choice="auto"
     #     )
-    # )
-
-    llm = OpenAILLMService(
-        model=os.getenv("OPENAI_MODEL"),
-        api_key=os.getenv("OPENAI_API_KEY"),
-        # base_url=os.getenv("OPENAI_BASE_URL")
-
-        # params=OpenAILLMService.InputParams(
-        #     temperature=0.7,
-        #     tools=tools_schema_,
-        #     tool_choice="auto"
-        # )
     )
 
     messages = [
@@ -230,15 +165,6 @@ async def run_bot(transport: BaseTransport, runner_args: RunnerArguments):
         rec = patients.get(pid)
         verified = bool(rec and rec["first_name"].lower()==fn.lower())
 
-        # session_record = {
-        #     "session_id": str(uuid.uuid4()),
-        #     "ts": int(time.time()),
-        #     "patient_id": pid,
-        #     "verified": verified
-        # }
-        # _save_json(SESSION_PATH, session_record)
-
-        # Return minimal info to the model (no extra PHI)
         result = {
             "verified": verified,
             "patient_id": pid,
@@ -252,7 +178,6 @@ async def run_bot(transport: BaseTransport, runner_args: RunnerArguments):
         print(f"\n\nPRINTING LIST OF PATIENTS:\n\n{patients}\n")
         rec = patients.get(pid)
         meds = rec["meds"] if rec else []
-        # Return compact listing
         print(f"\n\nMEDS: {meds}\n\n")
         await params.result_callback({"patient_id": pid, "medications": meds})
 

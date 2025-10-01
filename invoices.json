@@ -61,5 +61,23 @@
     "pharmacy": "Local Pharmacy",
     "amount": 35.0,
     "timestamp": "2025-09-18T06:48:58Z"
+  },
+  {
+    "invoice_id": "INV-8272CEAC",
+    "patient_id": "5",
+    "medication_id": "M510",
+    "quantity": 10,
+    "pharmacy": null,
+    "amount": 35.0,
+    "timestamp": "2025-10-01T21:37:47Z"
+  },
+  {
+    "invoice_id": "INV-772E12D9",
+    "patient_id": "3",
+    "medication_id": "M330",
+    "quantity": 5,
+    "pharmacy": null,
+    "amount": 25.0,
+    "timestamp": "2025-10-01T21:46:26Z"
   }
 ]

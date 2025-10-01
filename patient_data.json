@@ -14,8 +14,9 @@
     "last_name": "Smith",
     "dob": "1995-11-03",
     "meds": [
-      { "id": "M410", "name": "Ratchet 20mg", "sig": "Take 1 tablet nightly", "rx_number": "RX-0033" },
-      {"id": "M410", "name": "Clank 20mg", "sig": "Take 1 tablet nightly", "rx_number": "RX-0033" }
+      { "id": "M410", "name": "Adderall 20mg", "sig": "Take 1 tablet nightly", "rx_number": "RX-0033" },
+      { "id": "M330", "name": "Tylenol 50mg",   "sig": "Take 1 tablet daily", "rx_number": "RX-0217" },
+      { "id": "M510", "name": "Amoxicillin 75mg", "sig": "Take 1 tablet every morning before food", "rx_number": "RX-0320" }
     ],
     "refill_history": []
   },
@@ -24,8 +25,8 @@
     "last_name": "Mongoven",
     "dob": "1986-02-17",
     "meds": [
-      { "id": "M330", "name": "Kratos 50mg",   "sig": "Take 1 tablet daily", "rx_number": "RX-0217" },
-      { "id": "M510", "name": "Atreus 75mcg", "sig": "Take 1 tablet every morning before food", "rx_number": "RX-0320" }
+      { "id": "M330", "name": "Tylenol 50mg",   "sig": "Take 1 tablet daily", "rx_number": "RX-0217" },
+      { "id": "M510", "name": "Amoxicillin 75mg", "sig": "Take 1 tablet every morning before food", "rx_number": "RX-0320" }
     ],
     "refill_history": []
   },
@@ -34,8 +35,8 @@
     "last_name": "Fitz",
     "dob": "2004-02-17",
     "meds": [
-      { "id": "M330", "name": "Merlins Beard 50mg",   "sig": "Take 1 tablet daily", "rx_number": "RX-0217" },
-      { "id": "M510", "name": "Voldemort 75mcg", "sig": "Take 1 tablet every morning before food", "rx_number": "RX-0320" }
+      { "id": "M330", "name": "Amoxicillin 50mg",   "sig": "Take 1 tablet daily", "rx_number": "RX-0217" },
+      { "id": "M510", "name": "Adderall 75mg", "sig": "Take 1 tablet every morning before food", "rx_number": "RX-0320" }
     ],
     "refill_history": []
   },
@@ -45,7 +46,7 @@
     "dob": "1982-02-17",
     "meds": [
       { "id": "M330", "name": "Dr. Doom 50mg",   "sig": "Take 1 tablet daily", "rx_number": "RX-0217" },
-      { "id": "M510", "name": "Mr. Fantastic 75mcg", "sig": "Take 1 tablet every morning before food", "rx_number": "RX-0320" }
+      { "id": "M510", "name": "Mr. Fantastic 75mg", "sig": "Take 1 tablet every morning before food", "rx_number": "RX-0320" }
     ],
     "refill_history": []
   }

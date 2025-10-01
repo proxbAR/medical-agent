@@ -6,8 +6,11 @@ Medical Agent TDS
 1. Install UV. I recommend doing it using the following command (it keeps it local to your user):
    pipx install uv
 
-2. Run the 'uv sync' command
+2. Run the 'pipx ensurepath' command in order to get pipx synced with your PATH.
+   pipx ensurepath
+
+3. Run the 'uv sync' command.
    uv sync
 
-3. Run bot.py using the 'uv run' command
+4. Run bot.py using the 'uv run' command.
    uv run bot.py
